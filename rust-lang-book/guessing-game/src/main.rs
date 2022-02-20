@@ -1,7 +1,7 @@
 // Imports the standard io library
 use std::io;
 // Imports the rng crate
-use rang::Rng;
+use rand::Rng;
 
 // The main entry point to the program
 fn main() {
