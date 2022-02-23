@@ -1,2 +1,4 @@
 
 .idea/
+
+rust-lang-book/guessing-game/target/debug/
