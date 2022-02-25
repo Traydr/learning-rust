@@ -14,24 +14,35 @@ fn main() {
     let secret_number = rand::thread_rng().gen_range(1..101);
 
     println!("Secret number: {}", secret_number);
-    println!("Input below");
 
-    // Creates a variable changeable variables of type string
-    let mut guess = String::new();
+    loop {
+        println!("Input below");
 
-    // Reads from input, else throws error message
-    io::stdin()
-        .read_line(&mut guess)
-        .expect("Failed to read line");
+        // Creates a variable changeable variables of type string
+        let mut guess = String::new();
 
-    let guess: u32 = guess.trim().parse().expect("Please type a number!");
+        // Reads from input, else throws error message
+        io::stdin()
+            .read_line(&mut guess)
+            .expect("Failed to read line");
 
-    // Outputs user input
-    println!("You guessed: {}", guess);
+        println!("Please type a number!");
 
-    match guess.cmp(&secret_number) {
-        Ordering::Less => println!("Too small!"),
-        Ordering::Greater => println!("Too big!"),
-        Ordering::Equal => println!("You win!")
+        let guess: u32 = match guess.trim().parse() {
+            Ok(num) => num,
+            Err(_) => continue,
+        };
+
+        // Outputs user input
+        println!("You guessed: {}", guess);
+
+        match guess.cmp(&secret_number) {
+            Ordering::Less => println!("Too small!"),
+            Ordering::Greater => println!("Too big!"),
+            Ordering::Equal => {
+                println!("You win!");
+                break;
+            }
+        }
     }
 }
