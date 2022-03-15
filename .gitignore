@@ -1,4 +1,6 @@
 
 .idea/
 
-rust-lang-book/guessing-game/target/debug/
+rust-lang-book/guessing-game/target/
+rust-hello-example/hello-rust/target/
+rust-hello-example/using-crates/target/
